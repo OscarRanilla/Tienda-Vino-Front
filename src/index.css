@@ -1,1 +1,42 @@
-/* personalizar estilos globales aquí */
+/* estilos globales aquí */
+
+html, body, #root {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: #FEF3E2;
+    font-family: 'Arial', sans-serif;
+}
+
+.app-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.app-content {
+    flex: 1; /* para empujar el footer hacia abajo */
+    margin-top: 60px;
+}
+
+/* Paleta de colores: 
+    #FEF3E2 (fondo principal)
+    #FAB12F (principal)
+    #FA812F (hover)
+    #FA4032 (accent)
+*/
+
+/* Clase opcional para botones */
+.btn-primary {
+    background-color: #FAB12F;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.btn-primary:hover {
+    background-color: #FA812F;
+}

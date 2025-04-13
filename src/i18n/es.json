@@ -1,0 +1,40 @@
+{
+    "nav": {
+        "brand": "Falcon Crest Wines",
+        "home": "Inicio",
+        "shop": "Tienda",
+        "about": "Nosotros",
+        "contact": "Contacto",
+        "login": "Iniciar Sesión",
+        "register": "Registrarse"
+    },
+    "product": {
+        "viewMore": "Ver más",
+        "addToCart": "Agregar al carrito",
+        "price": "Precio"
+    },
+    "ageModal": {
+        "title": "Verificación de Edad",
+        "prompt": "Debes tener la edad legal para consumir alcohol. ¿Eres mayor de 18 años?",
+        "yes": "Sí, soy mayor",
+        "no": "No, soy menor"
+    },
+    "login": {
+        "title": "Iniciar Sesión",
+        "email": "Correo electrónico",
+        "password": "Contraseña",
+        "submit": "Acceder"
+    },
+    "register": {
+        "title": "Crear Cuenta",
+        "name": "Nombre",
+        "email": "Correo electrónico",
+        "password": "Contraseña",
+        "confirmPassword": "Confirmar contraseña",
+        "submit": "Registrarse"
+    },
+    "wine": {
+        "tasting": "Notas de Cata",
+        "backToShop": "Volver a la Tienda"
+    }
+}

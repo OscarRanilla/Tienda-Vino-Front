@@ -1,0 +1,39 @@
+.hero-home {
+    position: relative;
+    width: 100%;
+    height: 60vh;
+    overflow: hidden;
+}
+
+.hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.4);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.home-carousel {
+    max-width: 600px;
+    margin: 0 auto 2rem;
+}
+
+.carousel-image {
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin: 0 auto;
+}
+

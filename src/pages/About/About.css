@@ -1,0 +1,31 @@
+.about-container {
+    position: relative;
+    min-height: 80vh;
+    color: #333;
+    overflow: hidden; /* para asegurar que el video no desborde */
+}
+
+.about-video-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.about-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.about-content {
+    position: relative;
+    z-index: 1; 
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: rgba(254, 243, 226, 0.8); 
+    border-radius: 8px;
+    margin-top: 2rem;
+}

@@ -1,0 +1,35 @@
+
+.fc-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #f75d0a; /* accent color */
+    color: #fff;
+    padding: 1rem 2rem;
+    margin-top: 2rem;
+}
+
+.footer-left {
+    display: flex;
+    align-items: center;
+}
+
+.footer-logo {
+    height: 150px;
+    width: auto;
+    margin-right: 1rem;
+}
+
+.footer-right p {
+    margin: 0.5rem 0;
+    font-size: 25px;
+}
+
+.footer-right a {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.footer-right a:hover {
+    opacity: 0.8;
+}
