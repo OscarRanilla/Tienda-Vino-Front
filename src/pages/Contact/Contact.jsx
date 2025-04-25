@@ -6,14 +6,14 @@ import './Contact.css';
 function Contact() {
     const toast = useToast();
     const [form, setForm] = useState({ name:'', phone:'', address:'', email:'', mensaje:'' });
-
+    const UrlApi =import.meta.env.VITE_API_URL + '/contact';
     const handleChange = e =>
         setForm({ ...form, [e.target.id]: e.target.value });
 
     const handleSubmit = async e => {
         e.preventDefault();
         try {
-            const res = await fetch('http://localhost:8080/contact', {
+            const res = await fetch(UrlApi, {
                 method: 'POST',
                 headers: { 'Content-Type':'application/json' },
                 body: JSON.stringify(form),
