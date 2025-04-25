@@ -1,3 +1,5 @@
+@import '../../styles/loader.css';
+
 .wine-detail-container {
     display: flex;
     flex-wrap: wrap;
@@ -76,3 +78,10 @@
 .back-shop-link:hover {
     text-decoration: underline;
 }
+
+.wine-detail-error {
+    text-align: center;
+    color: #FA4032;
+    margin: 2rem 0;
+}
+

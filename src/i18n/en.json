@@ -23,7 +23,12 @@
         "title": "Login",
         "email": "Email",
         "password": "Password",
-        "submit": "Submit"
+        "submit": "Submit",
+        "forgotPassword":"¿Forgot Password?",
+        "resetPasswordTitle": "Reset password",
+        "enterEmail": "Enter email",
+        "sendResetLink" : "Send reset link",
+        "cancel": "cancel"
     },
     "register": {
         "title": "Register",

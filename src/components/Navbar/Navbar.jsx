@@ -1,23 +1,37 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { MdLogin } from 'react-icons/md';
-import { FaUserPlus } from 'react-icons/fa';
+import { FaUserPlus, FaUserCircle, FaSignOutAlt, FaShoppingCart } from 'react-icons/fa';
+import { useUser } from '../../Context/UserContext';
+import { useCart } from '../../Context/CartContext';
 import './Navbar.css';
-import logo from '/cropped-HOLA.png';
 
-const Navbar = () => {
+export default function Navbar() {
     const { t } = useTranslation();
+    const { user, loading, setUser } = useUser();
+    const { totalCount } = useCart();
+    const navigate = useNavigate();
+    const logoutUrl = `${import.meta.env.VITE_API_URL}/logout`;
+
+    const handleLogout = async () => {
+        try {
+            await fetch(logoutUrl, { method: 'GET', credentials: 'include' });
+            localStorage.removeItem('user');
+            setUser(null);
+            navigate('/');
+        }   catch (err) {
+            console.error(err);
+        }
+    };
 
     return (
         <nav className="navbar">
             <div className="nav-left">
                 <Link to="/">
-                    {/* logo a la izquierda */}
-                        <img src={logo} alt="logo" className="nav-logo" />
+                    <img src="/cropped-HOLA.png" alt="logo" className="nav-logo" />
                 </Link>
-                {/* Nombre de marca */}
-                <Link to="/" className="nav-brand">{t('nav.brand')}</Link>
+                <Link to="/" className="nav-brand">Falcon Crest Wines</Link>
             </div>
             <ul className="nav-links">
                 <li><Link to="/shop">{t('nav.shop')}</Link></li>
@@ -26,22 +40,41 @@ const Navbar = () => {
             </ul>
             <ul className="nav-auth">
                 <li>
-                    <Link to="/login" className="nav-icon">
-                        {/* Ícono de login */}
-                        <MdLogin size={20} style={{ marginRight: '0.3rem' }} />
-                        {t('nav.login')}
+                    <Link to="/cart" className="nav-icon">
+                        <FaShoppingCart size={18} />
+                        {totalCount > 0 && <span className="cart-badge">{totalCount}</span>}
                     </Link>
                 </li>
-                <li>
-                    <Link to="/register" className="nav-icon">
-                        {/* Ícono de registro */}
-                        <FaUserPlus size={18} style={{ marginRight: '0.3rem' }} />
-                        {t('nav.register')}
-                    </Link>
-                </li>
+                {loading ? (
+                    <li><span className="loader" /></li>
+                ) : user ? (
+                    <>
+                        <li className="nav-user">
+                            <FaUserCircle size={18} />{' '}
+                            <span className="user-greeting">Hola, {user.sanitizedUsername || user.email}</span>
+                        </li>
+                        <li>
+                            <button onClick={handleLogout} className="nav-icon">
+                                <FaSignOutAlt size={16} style={{ marginRight: '4px' }} />
+                                Cerrar sesión
+                            </button>
+                        </li>
+                    </>
+                ) : (
+                    <>
+                        <li>
+                            <Link to="/login" className="nav-icon">
+                                <MdLogin size={20} /> {t('nav.login')}
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to="/register" className="nav-icon">
+                                <FaUserPlus size={18} /> {t('nav.register')}
+                            </Link>
+                        </li>
+                    </>
+                )}
             </ul>
         </nav>
     );
-};
-
-export default Navbar;
+}
