@@ -40,3 +40,25 @@ html, body, #root {
 .btn-primary:hover {
     background-color: #FA812F;
 }
+
+/* RESPONSIVE */
+
+/* 0‑480 px */
+@media (max-width:480px){  
+    html{font-size:87%}
+    .topbar p{font-size:.75rem}
+    .home-carousel{max-width:100%}
+    .hero-overlay h2{font-size:1.5rem}
+    .hero-overlay p{font-size:.875rem}
+}
+
+/* 481‑768 px */
+@media (min-width:481px) and (max-width:768px){
+    .home-carousel{max-width:420px}
+}
+
+/* 1280+ px */
+@media (min-width:1280px){
+    .hero-home{height:70vh}
+    .carousel-image{max-height:360px}
+}

@@ -1,0 +1,19 @@
+.topbar{
+    background-color: #FAB12F ;      
+    color:#fff;
+    font-weight: 600;
+    overflow:hidden;
+    white-space:nowrap;
+}
+.topbar p{
+    display:inline-block;
+    padding:0.4rem 0;
+    animation:scroll 25s linear infinite;
+    font-weight:600;
+    letter-spacing:.5px;
+}
+
+@keyframes scroll{
+    0%   { transform:translateX(100%); }
+    100% { transform:translateX(-100%); }
+}

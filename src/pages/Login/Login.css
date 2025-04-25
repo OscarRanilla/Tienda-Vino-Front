@@ -51,3 +51,71 @@
 .login-button:hover {
     background-color: #FA812F;
 }
+
+/* Diana Cuadro Restablecer contraseña */
+
+.reset-password-container {
+    width: 100%;
+    max-width: 400px;
+    margin: 1.5rem auto;
+    padding: 1.5rem;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    text-align: center;
+}
+
+/* Agrupa los botones y los centra */
+.reset-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+/* Botón “Enviar enlace de restablecimiento” */
+.reset-button {
+    background-color: #FAB12F;
+    color: #FFF;
+    border: none;
+    border-radius: 4px;
+    padding: 0.6rem 1rem;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s;
+}
+.reset-button:hover {
+    background-color: #FA812F;
+}
+
+/* Botón “Cancelar” */
+.cancel-button {
+    background-color: #FA4032;
+    color: #FFF;
+    border: none;
+    border-radius: 4px;
+    padding: 0.6rem 1rem;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s;
+}
+.cancel-button:hover {
+    background-color: #D1372E;
+}
+
+/* Ajuste del input para que no choque con los botones */
+.reset-password-container input {
+    width: 100%;
+    padding: 0.6rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+
+/* Mensaje de error */
+.error-message {
+    color: #FA4032;
+    margin-top: 0.75rem;
+    font-size: 0.9rem;
+}
+

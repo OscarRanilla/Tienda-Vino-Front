@@ -1,30 +1,41 @@
-import React from 'react';
-// import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Box, Heading, SimpleGrid, Button, Text } from '@chakra-ui/react';
 import Slider from 'react-slick';
-import wines from '../../data/wines'; // esto se quitaría 
 import './Home.css';
 
 function Home() {
+    const [wines, setWines] = useState([]);                             // ⬅ vacío
+    const urlApi = import.meta.env.VITE_API_URL + '/wines';          // ⬅ endpoint
+
     const settings = {
         dots: true,
         infinite: true,
         speed: 700,
         slidesToShow: 1,
         slidesToScroll: 1,
-        autoplay: true
+        autoplay: true,
     };
 
-    //  const [wines, setWines] = useState([]);
+    useEffect(() => {
+        (async () => {
+            try {
+                const res   = await fetch(urlApi);
+                const data  = await res.json();
+                console.log('🎯 Datos recibidos →', data); 
+                setWines(data.wines);
+            } catch (err) {
+                console.error('Error cargando vinos:', err);
+            }
+        })();
+    }, []);
 
-    /* useEffect(() => {
-    fetch('http://localhost:8080/api/wines')
-        .then(res => res.json())
-        .then(data => setWines(data));
-    }, []); */
-
-    // hay que estar pendiente de definir la ruta '/api/wines' confirmar la endpoint
-    
+    if (!wines.length) {
+        return (
+            <Box minH="80vh" display="flex" alignItems="center" justifyContent="center">
+                <span className="loader"></span>
+            </Box>
+        );
+    }
     return (
         <Box position="relative" minH="80vh">
             {/* Hero section con imagen o video */}
@@ -42,12 +53,13 @@ function Home() {
                 </div>
             </div>
     
+            {/* Carrusel */}
             <Box p={4}>
                 <Heading mt={12} mb={4} color="#FA4032">Vinos Destacados</Heading>
                 <Box className="home-carousel" maxW="600px" mx="auto" mb={8}>
                     <Slider {...settings}>
                         {wines.map((wine) => (
-                            <Box key={wine.id} p={4} textAlign="center">
+                            <Box key={wine._id} p={4} textAlign="center">
                                 <img
                                     src={wine.image}
                                     alt={wine.name}
@@ -61,11 +73,12 @@ function Home() {
                     </Slider>
                 </Box>
     
+                {/* Grid de productos */}
                 <Heading mt={12} mb={4} color="#FA4032">Nuestra Selección</Heading>
                 <SimpleGrid columns={[1, 2, 3]} spacing={6}>
                     {wines.map((wine) => (
                         <Box
-                            key={wine.id}
+                            key={wine._id}
                             borderWidth="1px"
                             borderRadius="xl"
                             overflow="hidden"

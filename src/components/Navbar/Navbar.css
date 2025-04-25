@@ -1,58 +1,89 @@
+@import '../../styles/loader.css';
+
 .navbar {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #2d2d2d;
+    background-color: #121212; 
     padding: 0.8rem 2rem;
 }
 
+/* Left (logo + brand) */
 .nav-left {
     display: flex;
     align-items: center;
 }
-
 .nav-logo {
-    height: 40px;
+    height: 42px;
     margin-right: 1rem;
 }
-
 .nav-brand {
-    color: #ffffff;
-    font-size: 1.2rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #FAB12F;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.6);
     text-decoration: none;
-    font-weight: bold;
 }
 
-.nav-links,
+/* Center links */
+.nav-links {
+    display: flex;
+    gap: 1.5rem;
+}
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+}
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+/*  Right auth  */
 .nav-auth {
     display: flex;
-    list-style: none;
     gap: 1.2rem;
-    margin: 0;
-    padding: 0;
+    align-items: center;
 }
-
-.nav-links li,
 .nav-auth li {
     display: flex;
     align-items: center;
 }
-
-.nav-links a,
-.nav-auth a {
-    color: #ffffff;
-    text-decoration: none;
-    font-weight: 500;
-}
-
-.nav-links a:hover,
-.nav-auth a:hover {
-    text-decoration: underline;
-}
-
 .nav-icon {
     display: flex;
     align-items: center;
-    gap: 0.3rem;
+    gap: 0.4rem;
+    background: none;
+    border: none;
     color: #fff;
+    cursor: pointer;
+    font-weight: 500;
+}
+.nav-icon span {
+    color: #fff;
+}
+
+/* usuario logado */
+.nav-user {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: #fff;
+    font-weight: 500;
+}
+
+.user-greeting { 
+    color:#fff; 
+}
+
+.cart-badge {
+    background: #FAB12F; 
+    color:#121212; 
+    border-radius:50%;
+    padding:2px 6px; 
+    font-size:0.75rem; 
+    margin-left:-8px; 
+    margin-top:-8px;
+    position:absolute;
 }

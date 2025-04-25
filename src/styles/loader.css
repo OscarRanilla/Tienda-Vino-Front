@@ -1,0 +1,41 @@
+
+/* === Loader botella de vino === */
+.loader {
+    width: 40px;
+    height: 98px;
+    display: inline-block;
+    position: relative;
+    border: 2px solid #FA4032;
+    box-sizing: border-box;
+    background: #FA4032;
+    border-radius: 20px 20px 4px 4px;
+    animation: fill 2s linear infinite alternate;
+}
+.loader::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translate(-50%, -95%);
+    border: 2px solid #FA4032;
+    border-bottom: none;
+    background: #FA4032;
+    width: 15px;
+    height: 35px;
+    animation: fillNeck 2s linear infinite alternate;
+}
+@keyframes fill {
+    0%   { box-shadow: 0 0 inset; }
+    50%,100% { box-shadow: 0 -98px inset; }
+}
+@keyframes fillNeck {
+    0%,50%   { box-shadow: 0 0 inset; }
+    100%     { box-shadow: 0 -20px inset; }
+}
+
+/* Error genérico */
+.error {
+    color: #e53e3e;
+    text-align: center;
+    margin: 2rem 0;
+}

@@ -23,7 +23,12 @@
         "title": "Iniciar Sesión",
         "email": "Correo electrónico",
         "password": "Contraseña",
-        "submit": "Acceder"
+        "submit": "Acceder",
+        "forgotPassword":"¿Olvidó su contraseña?",
+        "resetPasswordTitle": "Restablecer contraseña",
+        "enterEmail": "ingrese el correo electrónico",
+        "sendResetLink": "enviar enlace de restablecimiento",
+        "cancel": "cancelar"
     },
     "register": {
         "title": "Crear Cuenta",
@@ -36,5 +41,8 @@
     "wine": {
         "tasting": "Notas de Cata",
         "backToShop": "Volver a la Tienda"
+    },
+    "shop": {
+        "title": "Nuestra Tienda"
     }
 }
