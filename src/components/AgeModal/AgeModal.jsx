@@ -20,10 +20,10 @@ function AgeModal({ onConfirm }) {
                 <p>{t('ageModal.prompt')}</p>
                 <div className="age-modal-buttons">
                     <button className="age-modal-yes" onClick={handleConfirm}>
-                        {t('ageModal.yes')}
+                        {t('ageModal.yes', 'Si')}
                     </button>
                     <button className="age-modal-no" onClick={handleDeny}>
-                        {t('ageModal.no')}
+                        {t('ageModal.no', 'No')}
                     </button>
                 </div>
             </div>

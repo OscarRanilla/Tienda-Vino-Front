@@ -1,0 +1,62 @@
+/* Contenedor general */
+.dashboard-video-container {
+    position: relative;
+    margin-top: -60px;
+    padding-top: 60px;       
+    width: 100%;
+    min-height: calc(100vh - 60px); 
+    overflow: hidden;
+}
+
+/* Vídeo de fondo */
+.dashboard-bg-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.8;  /* semitransparente */
+    z-index: 0;
+}
+
+/* Capa sobre el vídeo */
+.dashboard-overlay {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 100%;
+    padding: 2rem;
+    color: #FFF;
+}
+
+/* Título principal */
+.dashboard-title {
+    color: #FAB12F;
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    margin-bottom: 1rem;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Texto descriptivo */
+.dashboard-text {
+    max-width: 600px;
+    font-size: clamp(1.25rem, 3vw, 1.75rem);
+    line-height: 1.5;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+/* Responsive: en móvil ajustamos tamaños */
+@media (max-width: 768px) {
+    .dashboard-title {
+        font-size: clamp(2rem, 8vw, 3rem);
+    }
+    .dashboard-text {
+        font-size: 1.1rem;
+    }
+}

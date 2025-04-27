@@ -61,57 +61,67 @@ export default function Register() {
     };
 
     return (
-        <div className="register-container">
-            <h2 className="register-title">{t('register.title')}</h2>
-            <form onSubmit={handleSubmit} className="register-form">
-                <label htmlFor="username">{t('register.name')}</label>
-                <input
-                    type="text"
-                    id="username"
-                    name="username"
-                    placeholder="John Doe"
-                    value={form.username}
-                    onChange={handleChange}
-                    required
-                />
+        <div className="register-page">
+        {/* Vídeo de fondo */}
+            <video
+                className="register-bg-video"
+                src="/videos/video-register.mp4"
+                autoPlay
+                muted
+                loop
+            />
+                <div className="register-container">
+                    <h2 className="register-title">{t('register.title', 'Registrarse')}</h2>
+                        <form onSubmit={handleSubmit} className="register-form">
+                            <label htmlFor="username">{t('register.name')}</label>
+                            <input
+                                type="text"
+                                id="username"
+                                name="username"
+                                placeholder="John Doe"
+                                value={form.username}
+                                onChange={handleChange}
+                                required
+                            />
 
-                <label htmlFor="email">{t('register.email')}</label>
-                <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    placeholder="youremail@gmail.com"
-                    value={form.email}
-                    onChange={handleChange}
-                    required
-                />
+                            <label htmlFor="email">{t('register.email')}</label>
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                placeholder="youremail@gmail.com"
+                                value={form.email}
+                                onChange={handleChange}
+                                required
+                            />
 
-                <label htmlFor="password">{t('register.password')}</label>
-                <PasswordInput
-                    id="password"
-                    name="password"
-                    value={form.password}
-                    onChange={handleChange}
-                />
+                            <label htmlFor="password">{t('register.password')}</label>
+                            <PasswordInput
+                                id="password"
+                                name="password"
+                                value={form.password}
+                                onChange={handleChange}
+                            />
 
-                <label htmlFor="confirmPassword">{t('register.confirmPassword')}</label>
-                <PasswordInput
-                    id="confirmPassword"
-                    name="confirmPassword"
-                    value={form.confirmPassword}
-                    onChange={handleChange}
-                />
+                            <label htmlFor="confirmPassword">{t('register.confirmPassword')}</label>
+                            <PasswordInput
+                                id="confirmPassword"
+                                name="confirmPassword"
+                                value={form.confirmPassword}
+                                onChange={handleChange}
+                            />
 
-                {error && <p className="error-message">{error}</p>}
+                            {error && <p className="error-message">{error}</p>}
 
-                <button
-                    type="submit"
-                    className="register-button"
-                    disabled={!form.password || form.password !== form.confirmPassword}
-                >
-                    {t('register.submit')}
-                </button>
-            </form>
+                            <button
+                                type="submit"
+                                className="register-button"
+                                disabled={!form.password || form.password !== form.confirmPassword}
+                            >
+                                {t('register.submit')}
+                            </button>
+                        </form>
+                </div>
         </div>
     );
 }

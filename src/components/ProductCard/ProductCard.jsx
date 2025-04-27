@@ -1,12 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { useCart } from '../../Context/CartContext';
+import { Link } from 'react-router-dom';
 import './ProductCard.css';
 
-export default function ProductCard({ wine }) {
-    const { t } = useTranslation();
-    const { addToCart } = useCart();
+export default function ProductCard({ wine, onAdd }) {
+    const { t }    = useTranslation();
 
     return (
         <div className="product-card">
@@ -15,21 +13,17 @@ export default function ProductCard({ wine }) {
             <p className="product-price">€{wine.price.toFixed(2)}</p>
             <div className="product-card-actions">
                 <Link to={`/wine/${wine._id}`} className="view-more">
-                    {t('product.viewMore')}
+                    {t('product.viewMore', 'Ver Más')}
                 </Link>
-                <button
-                    className="add-to-cart"
-                    onClick={() => addToCart({
-                    id: wine._id,
-                    name: wine.name,
-                    image: wine.image,
-                    price: wine.price
-                })}
+                <button 
+                    className="add-to-cart" 
+                    onClick={onAdd}
                 >
-                    {t('product.addToCart')}
+                    {t('product.addToCart', 'Añadir al carrito')}
                 </button>
             </div>
         </div>
     );
 }
+
 

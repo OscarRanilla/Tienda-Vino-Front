@@ -1,10 +1,53 @@
 import React from 'react';
 import { useCart } from '../../Context/CartContext';
+import { useToast } from '@chakra-ui/react';
 import './Cart.css';
 
 export default function Cart() {
-    const { cart, removeFromCart, totalCount } = useCart();
+    const { cart, removeFromCart, clearCart, totalCount } = useCart();
     const total = cart.reduce((acc, i) => acc + i.price * i.quantity, 0);
+    const toast = useToast();
+
+    const handleCheckout = async () => {
+        try {
+            const res = await fetch(
+                `${import.meta.env.VITE_API_URL}/checkout-test`,
+                {
+                    method:      'POST',
+                    credentials: 'include',
+                    headers:     { 'Content-Type': 'application/json' },
+                    body:        JSON.stringify({ cart })
+                }
+            );
+            const data = await res.json();
+            if (data.success) {
+                toast({
+                    title: 'Compra simulada 🎉',
+                    description: 'Hemos enviado un email de prueba',
+                    status: 'success',
+                    duration: 3000,
+                    isClosable: true,
+                });
+                clearCart();
+            }   else {
+                toast({
+                    title: 'Error en simulación',
+                    description: data.message || 'Inténtalo de nuevo',
+                    status: 'error',
+                    duration: 3000,
+                    isClosable: true,
+                });
+            }
+        }   catch (err) {
+            console.error(err);
+            toast({
+                title: 'Error conectando con servidor',
+                status: 'error',
+                duration: 3000,
+                isClosable: true,
+            });
+        }
+    };
 
     return (
         <div className="cart-container">
@@ -37,7 +80,12 @@ export default function Cart() {
                         <span>Total:</span>
                         <strong>{total.toFixed(2)} €</strong>
                     </div>
-                    <button className="cart-checkout-button">Finalizar Compra</button>
+                    <button
+                        className="cart-checkout-button"
+                        onClick={handleCheckout}
+                    >
+                        Finalizar Compra
+                    </button>
                 </>
             )}
         </div>

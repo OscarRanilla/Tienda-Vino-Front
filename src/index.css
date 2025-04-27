@@ -52,9 +52,29 @@ html, body, #root {
     .hero-overlay p{font-size:.875rem}
 }
 
+@media (max-width: 480px) {
+    .section-title {
+        margin-top: 1rem; 
+        margin-bottom: 1rem;
+        font-size: 1.25rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .product-card {
+        padding: 0.75rem;
+    }
+}
+
 /* 481‑768 px */
 @media (min-width:481px) and (max-width:768px){
     .home-carousel{max-width:420px}
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+    .products-grid-with-bg {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
 }
 
 /* 1280+ px */

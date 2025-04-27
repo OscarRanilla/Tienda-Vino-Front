@@ -37,11 +37,11 @@
 }
 
 .age-modal-yes {
-    background-color: #38a169; /* verde */
+    background-color: #38a169; 
 }
 
 .age-modal-no {
-    background-color: #e53e3e; /* rojo */
+    background-color: #e53e3e; 
 }
 
 .age-modal-yes:hover,

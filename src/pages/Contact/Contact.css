@@ -1,10 +1,17 @@
+/* Fondo detrás de todo el contenedor de contacto */
+.contact-page {
+    background: url('../../assets/corchos-contacto.jpg') center/cover no-repeat;
+    padding: 4rem 1rem;
+    margin-top: -60px;
+    padding-top: 60px;
+}
 .contact-container {
     max-width: 500px;
-    margin: 2rem auto;
-    background-color: #fff;
+    margin: 0 auto;
+    background-color: rgba(255,255,255,0.95);
     padding: 2rem;
     border-radius: 6px;
-    border: 1px solid #ddd;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
 .contact-title {

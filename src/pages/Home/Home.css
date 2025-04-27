@@ -1,58 +1,140 @@
 @import '../../styles/loader.css';
 
+/* Hero */
 .hero-home {
     position: relative;
     width: 100%;
-    height: 60vh;
+    height: 70vh;
     overflow: hidden;
 }
-
 .hero-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    display: block;
 }
-
 .hero-overlay {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.4);
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.4);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-.home-carousel {
-    max-width: 900px;
+/* Hero tagline más grande y con sombra */
+.hero-tagline {
+    color: #FFF;
+    max-width: 700px;
+    text-align: center;
     margin: 0 auto 2rem;
+    font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+    line-height: 1.4;
+    font-weight: 300;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.4);
 }
 
+/* Títulos homogéneos */
+.section-title {
+    color: #FAB12F;
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.5rem,4vw,2.5rem);
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.2);
+    margin-bottom: 1.5rem;
+}
+
+/* Vídeo + Carrusel */
+.video-carousel-container {
+    position: relative;
+    width: 100%;
+    height: 56vh;
+    overflow: hidden;
+    border-radius: 8px;
+}
+.carousel-bg-video {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    opacity: 0.6;
+}
+.home-carousel {
+    position: relative;  /* para situar el slider encima */
+    z-index: 1;
+    max-width: 600px;
+    margin: 0 auto;
+    padding-top: 1rem;
+}   
 .carousel-image {
-    max-height: 420px;
+    max-height: 380px;
     object-fit: cover;
     border-radius: 8px;
     margin: 0 auto;
 }
 
-/*  Slick dots – mas grandes y con nuestro naranja */
-.slick-dots li button:before{
-    font-size:12px;color:#FAB12F;opacity:.6;
-}
-.slick-dots li.slick-active button:before{
-    color:#FA4032;opacity:1;
+/* slick dots & arrows */
+.slick-dots li button:before{ 
+    font-size:12px;
+    color:#FAB12F;
+    opacity:.6; 
 }
 
-  /*  Flechas personalizadas – círculos crema con icon */
+.slick-dots li.slick-active button:before{ 
+    color:#FA4032;
+    opacity:1; 
+}
+
 .slick-prev, .slick-next{
-    width:42px;height:42px;line-height:42px;
-    background:#FFF4E5;border-radius:50%;z-index:5;
-}
-.slick-prev:before, .slick-next:before{
-    font-size:18px;color:#FA4032;opacity:1;
+    width:42px; 
+    height:42px; 
+    line-height:42px;
+    background:#FFF4E5; 
+    border-radius:50%; 
+    z-index:2;
 }
 
+.slick-prev:before, .slick-next:before{
+    font-size:18px; 
+    color:#FA4032; 
+    opacity:1;
+}
+
+/* Cards */
+.product-card {
+    background: rgba(255,255,255,0.9);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: transform .2s, box-shadow .2s;
+    padding: 1rem;
+}
+
+.product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.product-image {
+    width: auto;
+    max-height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+    margin: 0 auto 1rem;
+}
+
+.add-to-cart {
+    background-color: #FAB12F!important;
+    color: #fff!important;
+    border: none;
+    padding: .5rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+/* Grid de productos con fondo de barriles */
+.products-grid-with-bg {
+    background: url('/src/assets/corchos.jpg') center/cover no-repeat;
+    padding: 2rem;
+    border-radius: 16px;
+}

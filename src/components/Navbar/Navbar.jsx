@@ -28,52 +28,49 @@ export default function Navbar() {
     return (
         <nav className="navbar">
             <div className="nav-left">
-                <Link to="/">
-                    <img src="/cropped-HOLA.png" alt="logo" className="nav-logo" />
-                </Link>
+                <Link to="/"><img src="/cropped-HOLA.png" alt="logo" className="nav-logo" /></Link>
                 <Link to="/" className="nav-brand">Falcon Crest Wines</Link>
             </div>
             <ul className="nav-links">
-                <li><Link to="/shop">{t('nav.shop')}</Link></li>
-                <li><Link to="/about">{t('nav.about')}</Link></li>
-                <li><Link to="/contact">{t('nav.contact')}</Link></li>
+                <li><Link to="/shop">{t('nav.shop', 'Tienda')}</Link></li>
+                <li><Link to="/about">{t('nav.about', 'Nosotros')}</Link></li>
+                <li><Link to="/contact">{t('nav.contact', 'Contacto')}</Link></li>
             </ul>
             <ul className="nav-auth">
-                <li>
-                    <Link to="/cart" className="nav-icon">
-                        <FaShoppingCart size={18} />
-                        {totalCount > 0 && <span className="cart-badge">{totalCount}</span>}
-                    </Link>
-                </li>
-                {loading ? (
-                    <li><span className="loader" /></li>
-                ) : user ? (
-                    <>
-                        <li className="nav-user">
-                            <FaUserCircle size={18} />{' '}
-                            <span className="user-greeting">Hola, {user.sanitizedUsername || user.email}</span>
-                        </li>
-                        <li>
-                            <button onClick={handleLogout} className="nav-icon">
-                                <FaSignOutAlt size={16} style={{ marginRight: '4px' }} />
-                                Cerrar sesión
-                            </button>
-                        </li>
-                    </>
-                ) : (
-                    <>
-                        <li>
-                            <Link to="/login" className="nav-icon">
-                                <MdLogin size={20} /> {t('nav.login')}
-                            </Link>
-                        </li>
-                        <li>
-                            <Link to="/register" className="nav-icon">
-                                <FaUserPlus size={18} /> {t('nav.register')}
-                            </Link>
-                        </li>
-                    </>
-                )}
+            {/* carrito como ruta */}
+            <li>
+                <Link to="/cart" className="nav-icon">
+                    <FaShoppingCart size={18} />
+                    {totalCount > 0 && <span className="cart-badge">{totalCount}</span>}
+                </Link>
+            </li>
+            {loading ? (
+                <li><span className="loader navbar-loader" /></li>
+            )   : user ? (
+                <>
+                    <li className="nav-user">
+                        <FaUserCircle size={18} /> <span className="user-greeting">Hola, {user.sanitizedUsername || user.email}</span>
+                    </li>
+                    <li>
+                        <button onClick={handleLogout} className="nav-icon">
+                            <FaSignOutAlt size={16} /> Cerrar sesión
+                        </button>
+                    </li>
+                </>
+            )   : (
+                <>
+                    <li>
+                        <Link to="/login" className="nav-icon">
+                            <MdLogin size={20} /> {t('nav.login')}
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to="/register" className="nav-icon">
+                            <FaUserPlus size={18} /> {t('nav.register')}
+                        </Link>
+                    </li>
+                </>
+            )}
             </ul>
         </nav>
     );
