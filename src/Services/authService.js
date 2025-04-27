@@ -16,7 +16,8 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const UrlApi = import.meta.env.VITE_API_URL + '/login';
 
-const login = async (email, password, userName) => {
+
+const loginUser = async (email, password) => {
     try {
         const userCredential = await signInWithEmailAndPassword(auth, email, password);
         const user = userCredential.user;
@@ -31,20 +32,19 @@ const login = async (email, password, userName) => {
             credentials: "include" // Es importante es linea, si no esta, no se guarda la cookie
         });
         
-        const data = await response.json();
-        console.log('data front:'  )
-        console.log(  data)
-        if (data.success) {
-            // Guardar en localStorage el usuaro para luego usar en el Nabvar
-            localStorage.setItem('user', JSON.stringify(data.user));
 
-             window.location.href = "/";  //Home o Dasboard
-        } else {
-            console.error("En el front:", data.message);
-            console.error("Error en login:", data.message);
+        const data = await response.json();
+        
+        if (data.success ) {
+            
+            localStorage.setItem("user", JSON.stringify(data.user));
+            return data.user; // devolvemos el usuario al componente
+        }   else {
+            console.error("Error en login:", data?.message || "Respuesta no válida del servidor");
+            return null; // para manejarlo en el componente
         }
     } catch (error) {
-        console.log(`Error en login: ${error}`);
+        console.error(`Error en login: ${error}`);
     }
 };
 
@@ -60,4 +60,4 @@ const passwordRecovery = async (email) => {
 };
 
 
-export { login, passwordRecovery };
+export { loginUser, passwordRecovery };

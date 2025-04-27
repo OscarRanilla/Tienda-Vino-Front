@@ -1,58 +1,75 @@
 .product-card {
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
+    background: rgba(255,255,255,0.9);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: transform .2s, box-shadow .2s;
     padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
-    background-color: #ffffff;
 }
 
 .product-card:hover {
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
 .product-image {
-    max-width: 100%;
-    border-radius: 4px;
-    height: auto;
-}
-
-.product-name {
-    font-size: 1.1rem;
-    margin: 0.5rem 0;
-    color: #333;
-}
-
-.product-price {
-    font-weight: bold;
-    color: #555;
-    margin-bottom: 0.5rem;
+    width: auto;
+    max-height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 1rem;
 }
 
 .product-card-actions {
     display: flex;
-    justify-content: center;
-    gap: 1rem;
+    gap: .5rem;
+    margin-top: auto;
 }
 
-.view-more, .add-to-cart {
-    display: inline-block;
-    text-decoration: none;
-    font-size: 0.9rem;
+.view-more,
+.add-to-cart {
+    border: none;
+    border-radius: 6px;
     padding: 0.5rem 1rem;
-    border-radius: 4px;
-    color: #ffffff;
     cursor: pointer;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: background .2s, transform .2s;
 }
 
 .view-more {
-    background-color: #3182ce; /* azul */
+    background-color: #FAB12F;
+    color: #fff;
+    text-decoration: none;
+}
+
+.view-more:hover {
+    background-color: #FA812F;
+    transform: translateY(-2px);
 }
 
 .add-to-cart {
-    background-color: #38a169; /* verde */
-    border: none;
+    background-color: #FA4032;
+    color: #fff;
 }
 
-.view-more:hover, .add-to-cart:hover {
-    opacity: 0.9;
+.add-to-cart:hover {
+    background-color: #d43a2c;
+    transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .product-card { 
+        padding: 0.75rem; 
+    }
+    .product-image { 
+        max-height: 140px; 
+    }
+    .view-more, .add-to-cart { 
+        flex: 1; font-size: .85rem; padding: .4rem; 
+    }
 }

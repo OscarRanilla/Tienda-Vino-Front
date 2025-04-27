@@ -1,31 +1,116 @@
+
+/* Contenedor principal */
+
 .about-container {
-    position: relative;
-    min-height: 80vh;
-    color: #333;
-    overflow: hidden; /* para asegurar que el video no desborde */
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background: #FEF3E2;
+    overflow: hidden;
 }
 
-.about-video-bg {
+  /* Sección de vídeo intro */
+.about-intro {
+    position: relative;
+    width: 100%;
+    height: 60vh;
+    overflow: hidden;
+}
+
+.about-intro video {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-
-.about-video {
-    width: 100%;
-    height: 100%;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
     object-fit: cover;
+    z-index: 0;
 }
 
-.about-content {
+.about-intro .intro-overlay {
     position: relative;
-    z-index: 1; 
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.4);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 1rem;
+}
+
+.about-intro .intro-overlay h2 {
+    color: #FAB12F;
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem,5vw,3rem);
+    text-shadow: 1px 1px 6px rgba(0,0,0,0.6);
+    margin-bottom: 1rem;
+}
+
+.about-intro .intro-overlay p {
+    color: #FFF;
+    font-size: clamp(1.5rem,2.5vw,1.25rem);
+    max-width: 700px;
+    line-height: 1.5;
+    font-weight: 300;
+}
+
+/* Sección genérica con fondo de imagen */
+
+.about-section {
+    position: relative;
+    width: 100%;
+    padding: 4rem 1rem;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.about-section .section-overlay {
+    position: relative;
+    z-index: 1;
     max-width: 800px;
     margin: 0 auto;
-    padding: 2rem;
-    background-color: rgba(254, 243, 226, 0.8); 
+    background: rgba(254,243,226,0.85);
     border-radius: 8px;
-    margin-top: 2rem;
+    padding: 2rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.about-section h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.5rem,3vw,2rem);
+    color: #FA4032;
+    margin-bottom: 1rem;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+.about-section h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.25rem,2.5vw,1.5rem);
+    color: #4A5568;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.about-section p {
+    font-size: clamp(0.95rem,2vw,1.1rem);
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 1.5rem;
+}
+
+/* Fondo específico por secciones */
+#tintos     { background-image: url('/src/assets/vinos-tintos.jpg'); }
+#blancos   { background-image: url('/src/assets/vinos-blancos.jpg'); }
+#maridaje { background-image: url('/src/assets/maridaje.jpg'); }
+
+/* Responsive */
+
+@media (max-width: 768px) {
+    .about-intro { height: 50vh; }
+    .about-intro .intro-overlay h2 { font-size: 2rem; }
+    .about-intro .intro-overlay p  { font-size: 1rem; }
+    .about-section { padding: 2.5rem 1rem; }
+    .about-section .section-overlay { padding: 1.5rem; }
 }

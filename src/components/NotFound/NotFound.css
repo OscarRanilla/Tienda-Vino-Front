@@ -1,0 +1,72 @@
+/* 1. Fondo a pantalla completa, pegado al navbar */
+.container-notFound {
+    position: relative;
+    margin-top: -60px;
+    padding-top: 60px;
+    height: 100vh;
+    background: url('/src/assets/not-found.jpg');
+    background-position: top center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+/* 2. Capa semitransparente con todo el contenido */
+.notfound-overlay {
+    position: absolute;          
+    left: 0;
+    width: 100%;
+    height: calc(100% - 60px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 2rem;
+    color: #fff;
+}
+
+/* 3. Título grande y dorado */
+.notfound-title {
+    color: #FAB12F;
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 6vw, 4rem);
+    margin-bottom: 1rem;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* 4. Párrafo con fuente legible */
+.notfound-text {
+    font-size: clamp(1.25rem, 3vw, 1.75rem);
+    line-height: 1.5;
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+/* 5. Botón “Volver al inicio” */
+.notfound-button {
+    display: inline-block;
+    background-color: #FAB12F;
+    color: #FFF;
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    font-weight: 500;
+    text-decoration: none;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.2s, transform 0.2s;
+}
+.notfound-button:hover {
+    background-color: #FA812F;
+    transform: translateY(-2px);
+}
+
+/* 6. Responsive */
+@media (max-width: 768px) {
+    .notfound-title {
+        font-size: clamp(1.5rem, 8vw, 3rem);
+    }
+    .notfound-text {
+        font-size: 1.1rem;
+    }
+}
